@@ -385,8 +385,25 @@ describe "/add" do
   it "displays the first number entered when the form is submitted", points: 1 do
     visit "/add"
 
-    fill_in "Add this:", with: 5
-    fill_in "to this:", with: 13.5
+    # fill_in "Add this:", with: 5
+    # fill_in "to this:", with: 13.5
+    add_label = find("label", :text => /Add\s+this/i)
+    for_attribute = add_label[:for]
+    begin
+      add_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Add this' <label> but didn't find one."
+    end
+    add_input.set(5)
+
+    to_label = find("label", :text => /to\s+this/i)
+    for_attribute = to_label[:for]
+    begin
+      to_input = find("##{for_attribute}") 
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'to this' <label> but didn't find one."
+    end
+    to_input.set(13.5)
 
     find("button", :text => /Add/i).click
 
@@ -399,8 +416,25 @@ describe "/add" do
   it "displays the second number entered when the form is submitted", points: 1 do
     visit "/add"
 
-    fill_in "Add this:", with: 7
-    fill_in "to this:", with: 11
+    # fill_in "Add this:", with: 7
+    # fill_in "to this:", with: 11
+    add_label = find("label", :text => /Add\s+this/i)
+    for_attribute = add_label[:for]
+    begin
+      add_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Add this' <label> but didn't find one."
+    end
+    add_input.set(7)
+
+    to_label = find("label", :text => /to\s+this/i)
+    for_attribute = to_label[:for]
+    begin
+      to_input = find("##{for_attribute}") 
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'to this' <label> but didn't find one."
+    end
+    to_input.set(11)
 
     find("button", :text => /Add/i).click
 
@@ -413,8 +447,25 @@ describe "/add" do
   it "displays the sum when the form is submitted", points: 1 do
     visit "/add"
 
-    fill_in "Add this:", with: 41.42
-    fill_in "to this:", with: 27.58
+    # fill_in "Add this:", with: 41.42
+    # fill_in "to this:", with: 27.58
+    add_label = find("label", :text => /Add\s+this/i)
+    for_attribute = add_label[:for]
+    begin
+      add_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Add this' <label> but didn't find one."
+    end
+    add_input.set(41.42)
+
+    to_label = find("label", :text => /to\s+this/i)
+    for_attribute = to_label[:for]
+    begin
+      to_input = find("##{for_attribute}") 
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'to this' <label> but didn't find one."
+    end
+    to_input.set(27.58)
 
     find("button", :text => /Add/i).click
 
@@ -440,8 +491,25 @@ describe "/subtract" do
   it "displays the first number entered when the form is submitted", points: 1 do
     visit "/subtract"
 
-    fill_in "Subtract this:", with: 10
-    fill_in "from this:", with: 13
+    # fill_in "Subtract this:", with: 10
+    # fill_in "from this:", with: 13
+    subtract_label = find("label", :text => /Subtract\s+this/i)
+    for_attribute = subtract_label[:for]
+    begin
+      subtract_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Subtract this' <label> but didn't find one."
+    end
+    subtract_input.set(10)
+
+    from_label = find("label", :text => /from\s+this/i)
+    for_attribute = from_label[:for]
+    begin
+      from_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'from this' <label> but didn't find one."
+    end
+    from_input.set(13)
 
     find("button", :text => /Subtract/i).click
 
@@ -454,8 +522,25 @@ describe "/subtract" do
   it "displays the second number entered when the form is submitted", points: 1 do
     visit "/subtract"
 
-    fill_in "Subtract this:", with: 7
-    fill_in "from this:", with: 11
+    # fill_in "Subtract this:", with: 7
+    # fill_in "from this:", with: 11
+    subtract_label = find("label", :text => /Subtract\s+this/i)
+    for_attribute = subtract_label[:for]
+    begin
+      subtract_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Subtract this' <label> but didn't find one."
+    end
+    subtract_input.set(7)
+
+    from_label = find("label", :text => /from\s+this/i)
+    for_attribute = from_label[:for]
+    begin
+      from_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'from this' <label> but didn't find one."
+    end
+    from_input.set(11)
 
     find("button", :text => /Subtract/i).click
 
@@ -468,8 +553,25 @@ describe "/subtract" do
   it "displays the difference when the form is submitted", points: 1 do
     visit "/subtract"
 
-    fill_in "Subtract this:", with: 69.0
-    fill_in "from this:", with: 27.5
+    # fill_in "Subtract this:", with: 69.0
+    # fill_in "from this:", with: 27.5
+    subtract_label = find("label", :text => /Subtract\s+this/i)
+    for_attribute = subtract_label[:for]
+    begin
+      subtract_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Subtract this' <label> but didn't find one."
+    end
+    subtract_input.set(69.0)
+
+    from_label = find("label", :text => /from\s+this/i)
+    for_attribute = from_label[:for]
+    begin
+      from_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'from this' <label> but didn't find one."
+    end
+    from_input.set(27.5)
 
     find("button", :text => /Subtract/i).click
 
@@ -495,8 +597,25 @@ describe "/multiply" do
   it "displays the first number entered when the form is submitted", points: 1 do
     visit "/multiply"
 
-    fill_in "Multiply this:", with: 3.5
-    fill_in "by this:", with: 8
+    # fill_in "Multiply this:", with: 3.5
+    # fill_in "by this:", with: 8
+    multiply_label = find("label", :text => /Multiply\s+this/i)
+    for_attribute = multiply_label[:for]
+    begin
+      multiply_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Multiply this' <label> but didn't find one."
+    end
+    multiply_input.set(3.5)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(8)
 
     find("button", :text => /Multiply/i).click
 
@@ -509,8 +628,25 @@ describe "/multiply" do
   it "displays the second number entered when the form is submitted", points: 1 do
     visit "/multiply"
 
-    fill_in "Multiply this:", with: 10
-    fill_in "by this:", with: 2.2
+    # fill_in "Multiply this:", with: 10
+    # fill_in "by this:", with: 2.2
+    multiply_label = find("label", :text => /Multiply\s+this/i)
+    for_attribute = multiply_label[:for]
+    begin
+      multiply_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Multiply this' <label> but didn't find one."
+    end
+    multiply_input.set(10)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(2.2)
 
     find("button", :text => /Multiply/i).click
 
@@ -523,8 +659,25 @@ describe "/multiply" do
   it "displays the product when the form is submitted", points: 1 do
     visit "/multiply"
 
-    fill_in "Multiply this:", with: 62
-    fill_in "by this:", with: 27.5
+    # fill_in "Multiply this:", with: 62
+    # fill_in "by this:", with: 27.5
+    multiply_label = find("label", :text => /Multiply\s+this/i)
+    for_attribute = multiply_label[:for]
+    begin
+      multiply_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Multiply this' <label> but didn't find one."
+    end
+    multiply_input.set(62)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(27.5)
 
     find("button", :text => /Multiply/i).click
 
@@ -550,8 +703,25 @@ describe "/divide" do
   it "displays the first number entered when the form is submitted", points: 1 do
     visit "/divide"
 
-    fill_in "Divide this:", with: 5.5
-    fill_in "by this:", with: 8
+    # fill_in "Divide this:", with: 5.5
+    # fill_in "by this:", with: 8
+    divide_label = find("label", :text => /Divide\s+this/i)
+    for_attribute = divide_label[:for]
+    begin
+      divide_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Divide this' <label> but didn't find one."
+    end
+    divide_input.set(5.5)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(8)
 
     find("button", :text => /Divide/i).click
 
@@ -564,8 +734,25 @@ describe "/divide" do
   it "displays the second number entered when the form is submitted", points: 1 do
     visit "/divide"
 
-    fill_in "Divide this:", with: 10
-    fill_in "by this:", with: 2.2
+    # fill_in "Divide this:", with: 10
+    # fill_in "by this:", with: 2.2
+    divide_label = find("label", :text => /Divide\s+this/i)
+    for_attribute = divide_label[:for]
+    begin
+      divide_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Divide this' <label> but didn't find one."
+    end
+    divide_input.set(10)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(2.2)
 
     find("button", :text => /Divide/i).click
 
@@ -578,8 +765,25 @@ describe "/divide" do
   it "displays the quotient when the form is submitted", points: 1 do
     visit "/divide"
 
-    fill_in "Divide this:", with: 62
-    fill_in "by this:", with: 4
+    # fill_in "Divide this:", with: 62
+    # fill_in "by this:", with: 4
+    divide_label = find("label", :text => /Divide\s+this/i)
+    for_attribute = divide_label[:for]
+    begin
+      divide_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'Divide this' <label> but didn't find one."
+    end
+    divide_input.set(62)
+
+    by_label = find("label", :text => /by\s+this/i)
+    for_attribute = by_label[:for]
+    begin
+      by_input = find("##{for_attribute}")
+    rescue Capybara::ElementNotFound
+      expect(false).to be(true), "Expected to find an <input> with an id attribute that matched the for attribute of the 'by this' <label> but didn't find one."
+    end
+    by_input.set(4)
 
     find("button", :text => /Divide/i).click
 
@@ -587,4 +791,3 @@ describe "/divide" do
       "Expected results page of the form to display the quotient of 15.5 (when inputs are 62 and 4), but didn't."
   end
 end
-
