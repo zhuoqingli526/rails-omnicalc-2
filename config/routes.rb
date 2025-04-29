@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get("/", { :controller => "addition", :action => "show_addition_form" })
 
-  get("/ad", { :controller => "addition", :action => "show_addition_form" })
+  get("/add", { :controller => "addition", :action => "show_addition_form" })
 
   get("/wizard_add", { :controller => "addition", :action => "add_these" })
 
@@ -19,7 +19,3 @@ Rails.application.routes.draw do
   get("/wizard_div", { :controller => "division", :action => "divide_these" })
 
 end
-
-
-
-
